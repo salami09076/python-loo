@@ -2,6 +2,7 @@ def step_by_one(drw_numbers):
     result_list = list()
 
     for i in range(1, 45):
+
         temp = list(map(lambda x: x + i, drw_numbers))
 
         # Single Expression
@@ -16,4 +17,4 @@ def step_by_one(drw_numbers):
 
 
 if __name__ == "__main__":
-    step_by_one([1, 2, 3, 4, 5, 6, 7, 8])
+    print(step_by_one((1, 2, 3, 4, 5, 6, 7, 8)))

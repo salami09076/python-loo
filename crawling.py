@@ -80,3 +80,7 @@ def get_total_drw():
 def get_some_drw(st_drw_id, ed_drw_id):
     result_list = list(get_single_drw(i) for i in range(st_drw_id, ed_drw_id+1))
     return result_list
+
+
+if __name__ == '__main__':
+    print(get_some_drw(890, 901))

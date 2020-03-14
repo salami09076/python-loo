@@ -17,7 +17,7 @@ def get_interval(drw_numbers):
     c = list(drw_numbers[i] - drw_numbers[i - 1] for i in range(1, 6))
     c.insert(0, drw_numbers[0])
 
-    # 첫 숫자 포함 및 불포함 버전
+    # 첫 숫자 포함 및 불포함 버전 리스트에 추가
     result_list.append(a)
     result_list.append(c)
 
