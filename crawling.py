@@ -15,13 +15,14 @@ def get_current_drw():
         drw_id = info.h3.a.strong.text
         drw_date = str(info.h3.a.span.next_sibling.next_sibling.text).replace('-', '')
         drw_numbers = re.findall('\d+', info.p.a.text)
+        drw_numbers = list(map(int, drw_numbers))
 
         result_dict['drw_id'] = drw_id
         result_dict['drw_date'] = drw_date
         result_dict['drw_numbers'] = drw_numbers
 
     except Exception as e:
-        print('동행복권 에러')
+        print('Crawling ERROR')
         print(e)
         result_dict = None
 
@@ -41,13 +42,14 @@ def get_single_drw(drw_id):
         drw_date = ''.join(drw_date)
         drw_numbers = soup.select('div.nums span')
         drw_numbers = list(map(lambda x: x.text, drw_numbers))
+        drw_numbers = list(map(int, drw_numbers))
 
         result_dict['drw_id'] = drw_id
         result_dict['drw_date'] = drw_date
         result_dict['drw_numbers'] = drw_numbers
 
     except Exception as e:
-        print('동행복권 에러')
+        print('Crawling ERROR')
         print(e)
         result_dict = None
 
@@ -68,7 +70,7 @@ def get_total_drw():
             result_list.append(get_single_drw(i))
 
     except Exception as e:
-        print('동행복권 에러')
+        print('Crawling ERROR')
         print(e)
         result_list = None
 
