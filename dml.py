@@ -18,12 +18,29 @@ def insert_into_t_origin(drw):
         conn.close()
 
 
-def insert_into_t_step_origin(drw_id, step_list):
+def insert_into_t_interval_origin(drw):
+    try:
+        sql = 'INSERT INTO T_INTERVAL_ORIGIN (iid, i1, i2, i3, i4, i5, i6) VALUES(?, ?, ?, ?, ?, ?, ?)'
+        conn = sqlite3.connect('loo.db')
+        cur = conn.cursor()
+        cur.execute(sql, drw)
+        conn.commit()
+        print('INSERT ALL COMMITTED')
+
+    except Exception as e:
+        print('INSERT ALL FAILED')
+        print(e)
+
+    finally:
+        conn.close()
+
+
+def insert_into_t_step_origin(step_list):
     try:
         sql = 'INSERT INTO T_STEP_ORIGIN (did, b1, b2, b3, b4, b5, b6, bb) VALUES(?, ?, ?, ?, ?, ?, ?, ?)'
         conn = sqlite3.connect('loo.db')
         cur = conn.cursor()
-        cur.executemany(sql, drw)
+        cur.executemany(sql, step_list)
         conn.commit()
         print('INSERT ALL COMMITTED')
 
