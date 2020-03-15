@@ -16,12 +16,16 @@ def put_the_current_wins_into_t_origin():
     # dl.insert_into_t_step_origin(step_list)
 
     # origin interval calculation / insert preparation / insert commit
-    # interval_list = iv.get_interval(drw_dict['drw_numbers'])  # argument : list
-    # drw = interval_list
-    # drw.insert(0, int(drw_dict['drw_id']))
-    # dl.insert_into_t_interval_origin(drw)
+    interval_list = iv.get_interval(drw_dict['drw_numbers'])  # argument : list
+    interval_step_list = interval_list
+    # interval_list.insert(0, int(drw_dict['drw_id']))
+    # dl.insert_into_t_interval_origin(interval_list)
 
-    # TODO interval step calculation
+    # interval step calculation / insert preparation / insert commit
+    interval_step_list = st.step_by_one(interval_step_list)
+    for step in interval_step_list:
+        step.insert(0, int(drw_dict['drw_id']))
+    dl.insert_into_t_step_interval_origin(interval_step_list)
 
 
 def put_the_bulk_wins_into_t_origin(st_drw_id, ed_drw_id):
