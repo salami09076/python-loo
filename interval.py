@@ -3,7 +3,7 @@ def get_interval(drw_numbers):
     result_list = list()
 
     # 첫 숫자 제외
-    a = list(drw_numbers[i] - drw_numbers[i - 1] for i in range(1, 6))
+    a = list(drw_numbers[i] - drw_numbers[i - 1] for i in range(1, 7))
 
     # 첫 숫자 포함
     b = list()
@@ -14,7 +14,7 @@ def get_interval(drw_numbers):
         b.append(drw_numbers[i] - drw_numbers[i - 1])
 
     # 첫 숫자 포함 (연산과 코드가 적은 버전)
-    c = list(drw_numbers[i] - drw_numbers[i - 1] for i in range(1, 6))
+    c = list(drw_numbers[i] - drw_numbers[i - 1] for i in range(1, 7))
     c.insert(0, drw_numbers[0])
 
     result_list = c

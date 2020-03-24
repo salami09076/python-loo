@@ -20,7 +20,7 @@ def insert_into_t_origin(drw):
 
 def insert_into_t_interval_origin(drw):
     try:
-        sql = 'INSERT INTO T_INTERVAL_ORIGIN (iid, i1, i2, i3, i4, i5, i6) VALUES(?, ?, ?, ?, ?, ?, ?)'
+        sql = 'INSERT INTO T_INTERVAL_ORIGIN (iid, i1, i2, i3, i4, i5, i6, ib) VALUES(?, ?, ?, ?, ?, ?, ?, ?)'
         conn = sqlite3.connect('loo.db')
         cur = conn.cursor()
         cur.execute(sql, drw)
